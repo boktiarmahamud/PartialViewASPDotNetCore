@@ -1,0 +1,13 @@
+# Visual Studio / .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.cache
+/.idea/
+/.vscode/
+publish/
+*.dbs
+appsettings.Development.json

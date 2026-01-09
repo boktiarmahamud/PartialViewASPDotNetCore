@@ -1,0 +1,29 @@
+﻿@model IEnumerable<PartialViewASPDotNetCore.Models.Product>
+@{
+    ViewData["Title"] = "Products";
+}
+
+@* Plan (pseudocode):
+   1. Fix the typo in the partial tag: change `prtial` to `partial`.
+   2. Use the Razor partial tag helper with the partial name (without .cshtml) and pass the model item.
+   3. Ensure the partial file `_ProductPartialView.cshtml` exists in `Views/Home` or `Views/Shared`.
+   4. Provide a commented fallback using `@await Html.PartialAsync("_ProductPartialView", item)` in case tag helper isn't enabled.
+   5. Keep layout and Bootstrap column structure intact.
+*@
+
+<h1>Products</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                @* Partial tag helper: name without .cshtml *@
+                <partial name="_ProductPartialView" model="item" />
+                @* Fallback if partial tag helper is not available:
+                   @await Html.PartialAsync("_ProductPartialView", item)
+                *@
+            </div>
+        }
+    </div>
+</div>
